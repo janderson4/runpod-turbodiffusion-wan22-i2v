@@ -1,0 +1,12 @@
+torch==2.8.0
+torchvision
+runpod
+opencv-python
+pillow
+numpy
+requests
+tqdm
+
+# TurboDiffusion + deps
+turbodiffusion
+git+https://github.com/thu-ml/SpargeAttn.git
