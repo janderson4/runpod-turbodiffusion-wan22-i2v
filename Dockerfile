@@ -1,6 +1,7 @@
 FROM nvidia/cuda:12.4.1-cudnn-devel-ubuntu22.04
 
 ENV DEBIAN_FRONTEND=noninteractive
+ENV TURBODIFFUSION_DISABLE_FLASH_ATTN=1
 WORKDIR /
 
 # System deps
@@ -27,6 +28,8 @@ RUN pip install --upgrade pip \
 RUN git clone https://github.com/thu-ml/SpargeAttn.git /SpargeAttn \
  && cd /SpargeAttn \
  && pip install --no-cache-dir .
+
+RUN pip uninstall -y flash-attn || true
 
 # TurboDiffusion
 RUN git clone https://github.com/thu-ml/TurboDiffusion.git /turbodiffusion
