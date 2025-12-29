@@ -6,7 +6,4 @@ pillow
 numpy
 requests
 tqdm
-
-# TurboDiffusion + deps
 turbodiffusion
-git+https://github.com/thu-ml/SpargeAttn.git
