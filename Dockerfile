@@ -18,10 +18,15 @@ RUN apt-get update && apt-get install -y \
 
 RUN ln -s /usr/bin/python3 /usr/bin/python
 
-# Python deps
+# Python deps (NO SpargeAttn here)
 COPY requirements.txt .
 RUN pip install --upgrade pip \
- && pip install --no-cache-dir --prefer-binary -r requirements.txt
+ && pip install --no-cache-dir -r requirements.txt
+
+# --- Install SpargeAttn explicitly ---
+RUN git clone https://github.com/thu-ml/SpargeAttn.git /SpargeAttn \
+ && cd /SpargeAttn \
+ && pip install --no-cache-dir .
 
 # TurboDiffusion
 RUN git clone https://github.com/thu-ml/TurboDiffusion.git /turbodiffusion
